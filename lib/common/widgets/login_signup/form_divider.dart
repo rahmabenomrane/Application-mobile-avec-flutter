@@ -4,8 +4,8 @@ import 'package:examenmobile/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 class TFormDivider extends StatelessWidget {
-  const TFormDivider({super.key});
-
+  const TFormDivider({super.key,required this.dividerText});
+  final String dividerText;
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
@@ -22,7 +22,7 @@ class TFormDivider extends StatelessWidget {
           ),
         ),
         Text(
-          TTexts.orSignInWith.capitalize!,
+          dividerText,
           style: Theme.of(context).textTheme.bodyMedium,
         ),
         Flexible(

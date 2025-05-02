@@ -1,3 +1,4 @@
+import 'package:examenmobile/features/authentication/screens/signup/signup.dart';
 import 'package:examenmobile/navigation_menu.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
 import 'package:examenmobile/utils/constants/text_strings.dart';
@@ -57,7 +58,7 @@ class TLoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: ()=>Get.to(()=> const SignupScreen()),
                 child: Text(TTexts.createAccount),
               ),
             ),

@@ -4,6 +4,9 @@ import 'package:examenmobile/common/widgets/login_signup/social_buttons.dart';
 import 'package:examenmobile/features/authentication/screens/login/widgets/login_form.dart';
 import 'package:examenmobile/features/authentication/screens/login/widgets/login_header.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
+import 'package:examenmobile/utils/constants/text_strings.dart';
+import 'package:get/get.dart';
+
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -17,12 +20,12 @@ class LoginScreen extends StatelessWidget {
           padding: TSpacingStyle.paddingWithBarHeight,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              TLoginHeader(),
-              TLoginForm(),
-              TFormDivider(),
-              SizedBox(height: TSizes.spaceBtwSections),
-              TSocialButtons(),
+            children:  [
+             const TLoginHeader(),
+             const TLoginForm(),
+              TFormDivider(dividerText: TTexts.orSignInWith.capitalize!),
+              const SizedBox(height: TSizes.spaceBtwSections),
+             const TSocialButtons(),
             ],
           ),
         ),
