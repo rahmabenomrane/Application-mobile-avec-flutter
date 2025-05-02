@@ -7,6 +7,7 @@ import 'package:examenmobile/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:examenmobile/navigation_menu.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -92,7 +93,7 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () => Get.to(() => const NavigationMenu()),
                           child: Text(TTexts.signIn),
                         ),
                       ),
