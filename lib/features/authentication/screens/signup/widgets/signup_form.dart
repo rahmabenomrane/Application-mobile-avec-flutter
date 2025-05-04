@@ -1,7 +1,9 @@
+import 'package:examenmobile/features/authentication/screens/signup/verify_email.dart';
 import 'package:examenmobile/features/authentication/screens/signup/widgets/terms_conditions_checkbox.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
 import 'package:examenmobile/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 class TSignupForm extends StatelessWidget {
   const TSignupForm({super.key});
@@ -87,9 +89,7 @@ class TSignupForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {
-                // TODO: Add sign up logic
-              },
+              onPressed: ()=> Get.to(()=> const VerifyEmailScreen()),
               child: Text(TTexts.createAccount),
             ),
           ),
