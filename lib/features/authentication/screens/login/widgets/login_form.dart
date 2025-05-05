@@ -1,3 +1,4 @@
+import 'package:examenmobile/features/authentication/screens/password_configuration/forgot_password.dart';
 import 'package:examenmobile/features/authentication/screens/signup/signup.dart';
 import 'package:examenmobile/navigation_menu.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
@@ -41,7 +42,7 @@ class TLoginForm extends StatelessWidget {
                   ],
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: ()=>Get.to(() => const ForgotPassword()),
                   child: Text(TTexts.forgetPassword),
                 ),
               ],
