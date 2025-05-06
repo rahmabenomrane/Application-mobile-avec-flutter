@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:examenmobile/common/widgets/success_screen/success_screen.dart';
 import 'package:examenmobile/features/authentication/screens/login/login.dart';
