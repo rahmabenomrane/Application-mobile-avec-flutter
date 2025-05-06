@@ -4,6 +4,7 @@ import 'package:examenmobile/common/widgets/custom_shapes/containers/rounded_con
 import 'package:examenmobile/common/widgets/images/t_rounded_image.dart';
 import 'package:examenmobile/common/widgets/texts/product_price_text.dart';
 import 'package:examenmobile/common/widgets/texts/product_title_text.dart';
+import 'package:examenmobile/common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
 import 'package:examenmobile/utils/constants/colors.dart';
 import 'package:examenmobile/utils/constants/image_strings.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
@@ -88,22 +89,7 @@ class TProductCardVertical extends StatelessWidget {
                     smallSize: true,
                   ),
                   SizedBox(height: TSizes.spaceBtwItems / 2),
-                  Row(
-                    children: [
-                      Text(
-                        'animal world',
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      const SizedBox(width: TSizes.xs),
-                      const Icon(
-                        Iconsax.verify,
-                        color: TColors.primary,
-                        size: TSizes.iconXs,
-                      ),
-                    ],
-                  ),
+                  TBrandTitleWithVerifiedIcon( title: 'Animal world'),
                 ],
               ),
             ),
@@ -144,3 +130,4 @@ class TProductCardVertical extends StatelessWidget {
     );
   }
 }
+

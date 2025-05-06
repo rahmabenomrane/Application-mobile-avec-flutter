@@ -28,12 +28,15 @@ class HomeScreen extends StatelessWidget {
             const TPrimaryHeaderContainer(
               child: Column(
                 children: [
+                  //appbar
                   THomeAppBar(),
                   SizedBox(height: TSizes.spaceBtwSections),
 
+                  //searchbar
                   TSearchContainer(text: 'Search in store'),
                   SizedBox(height: TSizes.spaceBtwSections),
 
+                  //Categories
                   Padding(
                     padding: EdgeInsets.only(left: TSizes.defaultSpace),
                     child: Column(
@@ -53,6 +56,8 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+
+            //body
             Padding(
               padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(

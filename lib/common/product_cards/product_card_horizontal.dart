@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-class TProductCardVertical extends StatelessWidget {
-  const TProductCardVertical({super.key});
+class TProductCardHorizontal extends StatelessWidget {
+  const TProductCardHorizontal({super.key});
 
   @override
   Widget build(BuildContext context) {
