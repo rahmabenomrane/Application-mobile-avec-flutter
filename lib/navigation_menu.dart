@@ -1,3 +1,4 @@
+import 'package:examenmobile/features/shop/screens/store/store.dart';
 import 'package:examenmobile/utils/constants/colors.dart';
 import 'package:examenmobile/utils/helpers/helper_functions.dart';
 import 'package:flutter/cupertino.dart';
@@ -41,7 +42,7 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;//what is being observed
   final screens = [
     const HomeScreen(),
-    Container(color: Colors.purple),
+    const StoreScreen(),
     Container(color: Colors.blue),
     Container(color: Colors.green),
   ];

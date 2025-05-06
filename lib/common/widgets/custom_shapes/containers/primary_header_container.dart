@@ -4,9 +4,7 @@ import 'package:examenmobile/utils/constants/colors.dart';
 import 'package:flutter/cupertino.dart';
 
 class TPrimaryHeaderContainer extends StatelessWidget {
-  const TPrimaryHeaderContainer({
-    super.key,required this.child
-  });
+  const TPrimaryHeaderContainer({super.key, required this.child});
   final Widget child;
 
   @override
@@ -17,23 +15,27 @@ class TPrimaryHeaderContainer extends StatelessWidget {
         padding: const EdgeInsets.all(0),
         child: SizedBox(
           height: 400,
-          child: Stack(
-            children: [
-              Positioned(
-                top: -150,
-                right: -250,
-                child: TCircularContainer(
-                  backgroundColor: TColors.textWhite.withOpacity(0.1),
+          child: Container(
+            color: TColors.primary,
+            child: Stack(
+              children: [
+                Positioned(
+                  top: -150,
+                  right: -250,
+                  child: TCircularContainer(
+                    backgroundColor: TColors.textWhite.withOpacity(0.1),
+                  ),
                 ),
-              ),
-              Positioned(
-                top: 100,
-                right: -300,
-                child: TCircularContainer(
-                  backgroundColor: TColors.textWhite.withOpacity(0.1),
+                Positioned(
+                  top: 100,
+                  right: -300,
+                  child: TCircularContainer(
+                    backgroundColor: TColors.textWhite.withOpacity(0.1),
+                  ),
                 ),
-              ),
-            ],
+                child,
+              ],
+            ),
           ),
         ),
       ),
