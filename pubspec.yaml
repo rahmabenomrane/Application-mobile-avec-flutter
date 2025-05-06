@@ -1,20 +1,22 @@
 name: examenmobile
 description: "A new Flutter project."
- 
- 
+
 publish_to: 'none'
 
 version: 1.0.0+1
+
 environment:
   sdk: ^3.7.2
 
 dependencies:
   flutter:
     sdk: flutter
+
   http: ^1.1.0
   intl: ^0.18.1
   logger: ^2.0.1
   url_launcher: ^6.1.12
+
   smooth_page_indicator: ^1.1.0
   carousel_slider: ^5.0.0
   flutter_native_splash: ^2.4.6
@@ -23,21 +25,36 @@ dependencies:
 
 
 
+
+  # Firebase
+  firebase_core: ^2.14.0
+  firebase_storage: ^11.6.5
+
+
   # Connectivity & Animations
   connectivity_plus: ^4.0.2
   lottie: ^3.3.1
+
+
+  # Icons
+  iconsax: ^0.0.8
+
   cupertino_icons: ^1.0.8
+
+  # State Management & Local Storage
+  get: ^4.6.5
+  get_storage: ^2.1.1
+
+  # Others
+  smooth_page_indicator: ^1.1.0
+  flutter_native_splash: ^2.4.6
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   flutter_lints: ^5.0.0
 
-
- 
 flutter:
-
   uses-material-design: true
 
   assets:
@@ -47,31 +64,6 @@ flutter:
     - assets/icons/categories/
     - assets/images/banners/
     - assets/images/products/
-   
-   
-
-   
-   
-
-   
-   
-
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+    - assets/images/animations/
+    - assets/images/content/
+    - assets/images/reviews/
