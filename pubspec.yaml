@@ -16,10 +16,16 @@ dependencies:
   logger: ^2.0.1
   url_launcher: ^6.1.12
   smooth_page_indicator: ^1.1.0
+  carousel_slider: ^5.0.0
   flutter_native_splash: ^2.4.6
   get: ^4.7.2
   iconsax_flutter: ^1.0.0
 
+
+
+  # Connectivity & Animations
+  connectivity_plus: ^4.0.2
+  lottie: ^3.3.1
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
@@ -38,6 +44,9 @@ flutter:
     - assets/logos/
     - assets/icons/brands/
     - assets/images/on_boarding_images/
+    - assets/icons/categories/
+    - assets/images/banners/
+    - assets/images/products/
    
    
 
