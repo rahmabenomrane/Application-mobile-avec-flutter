@@ -17,13 +17,12 @@ Future<void> main() async {
   // Préserver l'écran de splash jusqu'à la fin du chargement
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  // Initialiser Firebase
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+  /// -- Initialize Firebase & Authentication Repository
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform).then(
+          (FirebaseApp value) => Get.put(AuthenticationRepository())
   );
 
-  // Injection de dépendance avec GetX
-  Get.put(AuthenticationRepository());
+
 
   // Lancer l'application
   runApp(const App());
