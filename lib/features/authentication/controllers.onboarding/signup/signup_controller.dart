@@ -6,7 +6,6 @@ import 'package:examenmobile/utils/constants/image_strings.dart';
 import 'package:examenmobile/utils/helpers/network_manager.dart';
 import 'package:examenmobile/utils/popups/full_screen_loader.dart';
 import 'package:examenmobile/utils/popups/loaders.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
