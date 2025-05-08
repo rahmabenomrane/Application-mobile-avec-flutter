@@ -5,11 +5,14 @@ import 'package:examenmobile/common/widgets/images/t_rounded_image.dart';
 import 'package:examenmobile/common/widgets/texts/product_price_text.dart';
 import 'package:examenmobile/common/widgets/texts/product_title_text.dart';
 import 'package:examenmobile/common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
+import 'package:examenmobile/features/shop/screens/product_details/product_details.dart';
 import 'package:examenmobile/utils/constants/colors.dart';
 import 'package:examenmobile/utils/constants/image_strings.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
 import 'package:examenmobile/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class TProductCardVertical extends StatelessWidget {
@@ -19,7 +22,7 @@ class TProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () {},
+      onTap: () =>Get.to(()=> const ProductDetailScreen()),
       child: Container(
         width: 180,
         constraints: const BoxConstraints(maxHeight: 300),
@@ -44,7 +47,7 @@ class TProductCardVertical extends StatelessWidget {
                     applyImageRadius: true,
                   ),
 
-                  // Sale Tag
+                  /// Sale Tag
                   Positioned(
                     top: 10,
                     child: TRoundedContainer(
@@ -81,16 +84,19 @@ class TProductCardVertical extends StatelessWidget {
             /// Details
             Padding(
               padding: EdgeInsets.only(left: TSizes.sm),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const TProductTitleText(
-                    title: 'PADDED JACKET COLD CM.45',
-                    smallSize: true,
-                  ),
-                  SizedBox(height: TSizes.spaceBtwItems / 2),
-                  TBrandTitleWithVerifiedIcon( title: 'Animal world'),
-                ],
+              child: SizedBox(
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const TProductTitleText(
+                      title: 'PADDED JACKET COLD CM.45',
+                      smallSize: true,
+                    ),
+                    SizedBox(height: TSizes.spaceBtwItems / 2),
+                    TBrandTitleWithVerifiedIcon( title: 'Animal world'),
+                  ],
+                ),
               ),
             ),
             Spacer(),
