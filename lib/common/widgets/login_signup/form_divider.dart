@@ -1,8 +1,6 @@
 import 'package:examenmobile/utils/constants/colors.dart';
-import 'package:examenmobile/utils/constants/text_strings.dart';
 import 'package:examenmobile/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 class TFormDivider extends StatelessWidget {
   const TFormDivider({super.key,required this.dividerText});
   final String dividerText;

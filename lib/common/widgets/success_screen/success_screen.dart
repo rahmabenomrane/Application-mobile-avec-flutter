@@ -26,8 +26,8 @@ class SuccessScreen extends StatelessWidget {
              const SizedBox(height: TSizes.spaceBtwItems),
              Text(subtitle, style: Theme.of(context).textTheme.labelMedium,textAlign: TextAlign.center ),
              const SizedBox(height: TSizes.spaceBtwSections),
-             ///Buttons
-             SizedBox(width: double.infinity, child: ElevatedButton(onPressed: ()=>Get.to(()=>const LoginScreen()), child: const Text(TTexts.tContinue))),
+             ///Buttons *****
+             SizedBox(width: double.infinity, child: ElevatedButton(onPressed: onPressed, child: const Text(TTexts.tContinue))),
 
            ],
          ),

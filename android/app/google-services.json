@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "144481283414",
+    "project_id": "pro-equinox-381716",
+    "storage_bucket": "pro-equinox-381716.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144481283414:android:bfb57d0e102a881ac4faf7",
+        "android_client_info": {
+          "package_name": "com.example.examenmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144481283414-kves556fmca19t8tids8a21bsi83f964.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.examenmobile",
+            "certificate_hash": "c64f992352b365f6155611e8592a885276b05fb7"
+          }
+        },
+        {
+          "client_id": "144481283414-skdh2onobmvgotnn2ktlgkak658dpk30.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVNab-T3-3XjwFiFV2hoW-PZhcvOO8rYs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144481283414-h0ig4j8h9vva68imceukpufn7kmahd9e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "144481283414-s1j780s8ub7tflm03pgv0s1q2qiucpmh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.examenmobile"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

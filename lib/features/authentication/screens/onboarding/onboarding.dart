@@ -1,19 +1,11 @@
-import 'package:examenmobile/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:examenmobile/features/authentication/screens/onboarding/widgets/onboarding_dot_navigation.dart';
 import 'package:examenmobile/features/authentication/screens/onboarding/widgets/onboarding_next_button.dart';
 import 'package:examenmobile/features/authentication/screens/onboarding/widgets/onboarding_page.dart';
 import 'package:examenmobile/features/authentication/screens/onboarding/widgets/onboarding_skip.dart';
-import 'package:examenmobile/utils/constants/colors.dart';
-import 'package:examenmobile/utils/constants/sizes.dart';
 import 'package:examenmobile/utils/constants/text_strings.dart';
-import 'package:examenmobile/utils/device/device_utility.dart';
-import 'package:examenmobile/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:examenmobile/utils/constants/image_strings.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:examenmobile/features/authentication/controllers.onboarding/onboarding_controller.dart';
 
 class OnBoardingScreen extends StatelessWidget {
