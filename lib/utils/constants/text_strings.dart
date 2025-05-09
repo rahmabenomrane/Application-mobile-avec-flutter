@@ -9,7 +9,8 @@ class TTexts {
   static const String submit = "Submit";
   static const String appName = "T-Store";
   static const String tContinue = "Continue";
-
+  static const String oldPassword = 'old password';
+  static const String confirmPassword = 'confirm new password';
 
   // -- OnBoarding Texts
   static const String onBoardingTitle1 = "Choose your product";

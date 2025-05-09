@@ -1,6 +1,8 @@
 import 'package:examenmobile/data/repositories/user/user_repository.dart';
+import 'package:examenmobile/features/personalization/screens/profile/profile.dart';
 import 'package:examenmobile/utils/popups/loaders.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:examenmobile/models/user_model.dart';
 
@@ -11,6 +13,15 @@ class UserController extends GetxController {
   Rx<UserModel> user = UserModel.empty().obs;
   final userRepository = Get.put(UserRepository());
 
+  final profileFormKey = GlobalKey<FormState>();
+
+  // Contrôleurs de formulaire
+  final firstName = TextEditingController();
+  final lastName = TextEditingController();
+  final username = TextEditingController();
+  final email = TextEditingController();
+  final phoneNumber = TextEditingController();
+
   @override
   void onInit() {
     // TODO: implement onInit
@@ -20,14 +31,21 @@ class UserController extends GetxController {
 
   Future<void> fetchUserRecord() async {
     try {
-      profileLoading.value= true;
+      profileLoading.value = true;
       final user = await userRepository.fetchUserDetails();
       this.user(user);
+
+      // Initialisation des contrôleurs
+      firstName.text = user.firstName;
+      lastName.text = user.lastName;
+      username.text = user.username;
+      email.text = user.email;
+      phoneNumber.text = user.phoneNumber;
     } catch (e) {
       user(UserModel.empty());
-    } finally{
-      profileLoading.value= false;
-
+      TLoaders.errorSnackBar(title: 'Error', message: e.toString());
+    } finally {
+      profileLoading.value = false;
     }
   }
 
@@ -65,4 +83,46 @@ class UserController extends GetxController {
       );
     }
   }
-}
+  Future<void> updateUserDetails() async {
+    try {
+      if (!profileFormKey.currentState!.validate()) {
+        TLoaders.warningSnackBar(
+          title: 'Validation Error',
+          message: 'Please fill all required fields correctly',
+        );
+        return;
+      }
+
+      profileLoading.value = true;
+
+      final updatedUser = UserModel(
+        id: user.value.id,
+        firstName: firstName.text.trim(),
+        lastName: lastName.text.trim(),
+        username: username.text.trim(),
+        email: email.text.trim(),
+        phoneNumber: phoneNumber.text.trim(),
+        profilePicture: user.value.profilePicture,
+      );
+
+      await userRepository.updateUserDetails(updatedUser);
+      user(updatedUser);
+
+      TLoaders.successSnackBar(
+        title: 'Success!',
+        message: 'Your profile has been updated',
+      );
+
+      // Redirection après succès
+      Get.offAll(() => ProfileScreen());
+
+    } catch (e) {
+      TLoaders.errorSnackBar(
+        title: 'Error',
+        message: e.toString(),
+      );
+    } finally {
+      profileLoading.value = false;
+    }
+  }}
+
