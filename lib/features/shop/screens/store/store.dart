@@ -11,6 +11,7 @@ import 'package:examenmobile/common/widgets/products.cart/cart_menu_icon.dart';
 import 'package:examenmobile/common/widgets/texts/section_heading.dart';
 import 'package:examenmobile/common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
 import 'package:examenmobile/features/shop/controllers/category_controller.dart';
+import 'package:examenmobile/features/shop/controllers/product/product_controller.dart';
 import 'package:examenmobile/features/shop/screens/store/store.dart';
 import 'package:examenmobile/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:examenmobile/utils/constants/colors.dart';
@@ -19,12 +20,15 @@ import 'package:examenmobile/utils/constants/image_strings.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
 import 'package:examenmobile/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     final categories = CategoryController.instance.featuredCategories;
     return DefaultTabController(
       length: categories.length,
@@ -78,7 +82,7 @@ class StoreScreen extends StatelessWidget {
 
                       //brands grid
                       TGridLayout(
-                        itemCount: 4,
+                        itemCount:  controller.featuredProducts.length,
                         mainAxisExtent: 80,
                         itemBuilder: (_, index) {
                           return TBrandCard(showBorder: false);

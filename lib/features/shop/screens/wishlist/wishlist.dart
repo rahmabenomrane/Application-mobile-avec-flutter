@@ -1,6 +1,7 @@
 import 'package:examenmobile/common/icons/t_circular_icon.dart';
 import 'package:examenmobile/common/product_cards/product_card_vertical.dart';
 import 'package:examenmobile/common/widgets/layouts/grid_layout.dart';
+import 'package:examenmobile/features/shop/models/product_model.dart';
 import 'package:examenmobile/features/shop/screens/home/home.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
@@ -31,7 +32,7 @@ class FavouriteScreen extends StatelessWidget {
             children: [
               TGridLayout(
                 itemCount: 6,
-                itemBuilder: (_, index) => const TProductCardVertical(),
+                itemBuilder: (_, index) =>  TProductCardVertical(product: ProductModel.empty(),),
               ),
             ],
           ),

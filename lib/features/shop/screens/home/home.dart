@@ -5,6 +5,8 @@ import 'package:examenmobile/common/widgets/custom_shapes/containers/circular_co
 import 'package:examenmobile/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:examenmobile/common/widgets/images/t_rounded_image.dart';
 import 'package:examenmobile/common/widgets/layouts/grid_layout.dart';
+import 'package:examenmobile/common/widgets/shimmers/vertical_product_shimmer.dart';
+import 'package:examenmobile/features/shop/controllers/product/product_controller.dart';
 import 'package:examenmobile/features/shop/screens/all_products/all_products.dart';
 import 'package:examenmobile/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:examenmobile/features/shop/screens/home/widgets/promo_slider.dart';
@@ -23,6 +25,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
@@ -34,7 +37,6 @@ class HomeScreen extends StatelessWidget {
                   //appbar
                   THomeAppBar(),
                   SizedBox(height: TSizes.spaceBtwSections),
-
 
                   //searchbar
                   TSearchContainer(text: 'Search in store'),
@@ -77,16 +79,32 @@ class HomeScreen extends StatelessWidget {
 
                   TSectionHeading(
                     title: 'Popular Products',
-                    onPressed: () => Get.to(() => const AllProducts())),
+                    onPressed: () => Get.to(() => const AllProducts()),
+                  ),
 
                   SizedBox(height: TSizes.spaceBtwItems),
 
-                  //New arrivals
-                  TGridLayout(itemCount: 4,itemBuilder: (_,index) => const TProductCardVertical(),),
+                  //Popular Products
+                  Obx(() {
+                    if (controller.isLoading.value)
+                      return TVerticalProductShimmer();
+                    if (controller.featuredProducts.isEmpty) {
+                      return Center(
+                        child: Text(
+                          'No data found',
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      );
+                    }
+                    ;
+                    return TGridLayout(
+                      itemCount: controller.featuredProducts.length,
+                      itemBuilder: (_, index) => TProductCardVertical(product:controller.featuredProducts[index]),
+                    );
+                  }),
                 ],
               ),
             ),
-
           ],
         ),
       ),

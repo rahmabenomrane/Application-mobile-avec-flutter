@@ -1,6 +1,7 @@
 import 'package:examenmobile/common/product_cards/product_card_vertical.dart';
 import 'package:examenmobile/common/widgets/appbar/appbar.dart';
 import 'package:examenmobile/common/widgets/layouts/grid_layout.dart';
+import 'package:examenmobile/features/shop/models/product_model.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +39,7 @@ class AllProducts extends StatelessWidget {
                     .toList(),
               ),
               const SizedBox(height: TSizes.spaceBtwSections,),
-              TGridLayout(itemCount: 8, itemBuilder: (_,index)=> const TProductCardVertical())
+              TGridLayout(itemCount: 8, itemBuilder: (_,index)=>  TProductCardVertical(product: ProductModel.empty())),
             ],
           ),
         ),
