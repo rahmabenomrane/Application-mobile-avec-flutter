@@ -10,6 +10,7 @@ import 'package:examenmobile/common/widgets/layouts/grid_layout.dart';
 import 'package:examenmobile/common/widgets/products.cart/cart_menu_icon.dart';
 import 'package:examenmobile/common/widgets/texts/section_heading.dart';
 import 'package:examenmobile/common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
+import 'package:examenmobile/features/shop/controllers/category_controller.dart';
 import 'package:examenmobile/features/shop/screens/store/store.dart';
 import 'package:examenmobile/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:examenmobile/utils/constants/colors.dart';
@@ -24,8 +25,9 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categories = CategoryController.instance.featuredCategories;
     return DefaultTabController(
-      length: 6,
+      length: categories.length,
       child: Scaffold(
         //appbar title + cart icon
         appBar: TAppBar(
@@ -87,28 +89,20 @@ class StoreScreen extends StatelessWidget {
                 ),
 
                 //tabs
-                bottom: const TTabBar(
-                  tabs: [
-                    Tab(child: Text('Bowl')),
-                    Tab(child: Text('Accessories')),
-                    Tab(child: Text('Hygiene')),
-                    Tab(child: Text('Toys')),
-                    Tab(child: Text('Food')),
-                    Tab(child: Text('Box')),
-                  ],
+                bottom: TTabBar(
+                  tabs:
+                      categories
+                          .map((category) => Tab(child: Text(category.name)))
+                          .toList(),
                 ),
               ),
             ];
           },
           body: TabBarView(
-            children: [
-              TCategoryTab(),
-              TCategoryTab(),
-              TCategoryTab(),
-              TCategoryTab(),
-              TCategoryTab(),
-              TCategoryTab(),
-            ],
+            children:
+                categories
+                    .map((category) => TCategoryTab(category: category))
+                    .toList(),
           ),
         ),
       ),
