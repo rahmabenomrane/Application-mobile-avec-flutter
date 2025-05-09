@@ -1,5 +1,6 @@
 import 'package:examenmobile/common/widgets/appbar/appbar.dart';
 import 'package:examenmobile/common/widgets/texts/section_heading.dart';
+import 'package:examenmobile/features/personalization/controllers/user_controller.dart';
 import 'package:examenmobile/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
       appBar: TAppBar(showBackArrow: true,title: Text('Profile')),
       body: SingleChildScrollView(
@@ -42,12 +44,12 @@ class ProfileScreen extends StatelessWidget {
 
               TProfileMenu(
                 title: 'Name',
-                value: 'Coding with T',
+                value: controller.user.value.fullName,
                 onPressed: () {},
               ),
               TProfileMenu(
                 title: 'Username',
-                value: 'coding_with_t',
+                value: controller.user.value.username,
                 onPressed: () {},
               ),
 
@@ -59,20 +61,15 @@ class ProfileScreen extends StatelessWidget {
               const TSectionHeading(title: 'Personal Information', showActionButton: false),
               const SizedBox(height: TSizes.spaceBtwItems),
 
-              TProfileMenu(
-                title: 'User ID',
-                value: '45689',
-                icon: Iconsax.copy,
-                onPressed: () {},
-              ),
+
               TProfileMenu(
                 title: 'E-mail',
-                value: 'support@codingwitht.com',
+                value: controller.user.value.email,
                 onPressed: () {},
               ),
               TProfileMenu(
                 title: 'Phone Number',
-                value: '+92-317-8699528',
+                value: controller.user.value.phoneNumber,
                 onPressed: () {},
               ),
               TProfileMenu(
