@@ -2,6 +2,7 @@ import 'package:examenmobile/common/icons/t_circular_icon.dart';
 import 'package:examenmobile/common/widgets/appbar/appbar.dart';
 import 'package:examenmobile/common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
 import 'package:examenmobile/common/widgets/images/t_rounded_image.dart';
+import 'package:examenmobile/features/shop/models/product_model.dart';
 import 'package:examenmobile/utils/constants/colors.dart';
 import 'package:examenmobile/utils/constants/image_strings.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
@@ -11,7 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 class TProductImageSlider extends StatelessWidget {
-  const TProductImageSlider({super.key});
+  const TProductImageSlider({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {

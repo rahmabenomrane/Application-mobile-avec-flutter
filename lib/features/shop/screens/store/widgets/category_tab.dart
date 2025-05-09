@@ -4,6 +4,7 @@ import 'package:examenmobile/common/product_cards/product_card_vertical.dart';
 import 'package:examenmobile/common/widgets/layouts/grid_layout.dart';
 import 'package:examenmobile/common/widgets/texts/section_heading.dart';
 import 'package:examenmobile/features/shop/models/category_model.dart';
+import 'package:examenmobile/features/shop/models/product_model.dart';
 import 'package:examenmobile/utils/constants/image_strings.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
@@ -50,7 +51,7 @@ class TCategoryTab extends StatelessWidget {
 
               TGridLayout(
                 itemCount: 4,
-                itemBuilder: (_, index) => const TProductCardVertical(),
+                itemBuilder: (_, index) =>  TProductCardVertical(product: ProductModel.empty()),
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
             ],
