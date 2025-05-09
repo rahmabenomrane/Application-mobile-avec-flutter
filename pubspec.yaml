@@ -41,6 +41,7 @@ dependencies:
   # State Management & Local Storage
   get_storage: ^2.1.1
 
+  readmore: ^3.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
