@@ -1,8 +1,5 @@
-import 'dart:ui';
-
 import 'package:examenmobile/utils/constants/colors.dart';
 import 'package:examenmobile/utils/helpers/helper_functions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -15,12 +12,15 @@ class TShimmerEffect extends StatelessWidget {
     this.color,
   }) : super(key: key);
 
-  final double width,height,radius;
+  final double width;
+  final double height;
+  final double radius;
   final Color? color;
 
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
+    
     return Shimmer.fromColors(
       baseColor: dark ? Colors.grey[850]! : Colors.grey[300]!,
       highlightColor: dark ? Colors.grey[700]! : Colors.grey[100]!,
@@ -28,7 +28,7 @@ class TShimmerEffect extends StatelessWidget {
         width: width,
         height: height,
         decoration: BoxDecoration(
-          color: color ?? (dark ? TColors.darkerGrey : TColors.white),
+          color: color ?? (dark ? TColors.darkerGrey : TColors.lightGrey),
           borderRadius: BorderRadius.circular(radius),
         ),
       ),

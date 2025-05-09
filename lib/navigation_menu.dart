@@ -1,3 +1,4 @@
+import 'package:examenmobile/features/personalization/screens/settings/settings.dart';
 import 'package:examenmobile/features/shop/screens/store/store.dart';
 import 'package:examenmobile/features/shop/screens/wishlist/wishlist.dart';
 import 'package:examenmobile/utils/constants/colors.dart';
@@ -45,6 +46,6 @@ class NavigationController extends GetxController {
     const HomeScreen(),
     const StoreScreen(),
     const FavouriteScreen(),
-    Container(color: Colors.green),
+    const SettingsScreen(),
   ];
 }
