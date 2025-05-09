@@ -1,5 +1,6 @@
 import 'package:examenmobile/common/widgets/appbar/appbar.dart';
 import 'package:examenmobile/common/widgets/texts/section_heading.dart';
+import 'package:examenmobile/features/authentication/screens/password_configuration/change_password.dart';
 import 'package:examenmobile/features/personalization/controllers/user_controller.dart';
 import 'package:examenmobile/features/personalization/screens/profile/widgets/change_name.dart';
 import 'package:examenmobile/features/personalization/screens/profile/widgets/profile_menu.dart';
@@ -83,6 +84,15 @@ class ProfileScreen extends StatelessWidget {
                 value: '18 Oct, 1994',
                 onPressed: () {},
               ),
+              TProfileMenu(
+                title: 'Password',
+                value: '********',
+                icon: Iconsax.password_check,
+                onPressed: () => Get.to(() => const ChangePasswordScreen()),
+              ),
+
+
+
 
               // Close Account Button
               const SizedBox(height: TSizes.spaceBtwSections),
