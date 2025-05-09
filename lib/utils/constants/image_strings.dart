@@ -19,10 +19,8 @@ class TImages {
   static const String foodIcon = "assets/icons/categories/pet-food.png";
   static const String accessoriesIcon = "assets/icons/categories/pet-collar.png";
   static const String hygienIcon = "assets/icons/categories/pet-grooming.png";
-
-  static const String furnitureIcon = "assets/icons/categories/icons8-dining-chair-64.png";
-  static const String jeweleryIcon = "assets/icons/categories/icons8-sparkling-diamond-64.png";
-  static const String electronicsIcon = "assets/icons/categories/icons8-smartphone-64.png";
+  static const String dogIcon = "assets/icons/categories/dog.png";
+  static const String catIcon = "assets/icons/categories/cat.png";
 
   // -- Brand Icons
   static const String nikeLogo = "assets/icons/brands/nike.png";
@@ -142,8 +140,9 @@ class TImages {
   static const String promoBanner1 = "assets/images/banners/promo-banner-1.png";
   static const String promoBanner2 = "assets/images/banners/promo-banner-2.png";
   static const String promoBanner3 = "assets/images/banners/promo-banner-3.png";
-  static const String banner1 = "assets/images/banners/banner_1.jpg";
-  static const String banner2 = "assets/images/banners/banner_2.jpg";
+  static const String banner1 = "assets/images/banners/promo-banner-6.png";
+  static const String banner2 = "assets/images/banners/promo-banner-5.jpg";
+
   static const String banner3 = "assets/images/banners/banner_3.jpg";
   static const String banner4 = "assets/images/banners/banner_4.jpg";
   static const String banner5 = "assets/images/banners/banner_5.jpg";

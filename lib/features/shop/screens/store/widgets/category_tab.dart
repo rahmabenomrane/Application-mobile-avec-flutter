@@ -3,12 +3,15 @@ import 'package:examenmobile/common/product_cards/product_card_horizontal.dart';
 import 'package:examenmobile/common/product_cards/product_card_vertical.dart';
 import 'package:examenmobile/common/widgets/layouts/grid_layout.dart';
 import 'package:examenmobile/common/widgets/texts/section_heading.dart';
+import 'package:examenmobile/features/shop/models/category_model.dart';
 import 'package:examenmobile/utils/constants/image_strings.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
 
 class TCategoryTab extends StatelessWidget {
-  const TCategoryTab({super.key});
+  const TCategoryTab({super.key, required this.category});
+
+  final CategoryModel category;
 
   @override
   Widget build(BuildContext context) {

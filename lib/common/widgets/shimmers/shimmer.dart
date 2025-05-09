@@ -3,8 +3,6 @@ import 'package:examenmobile/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-
-
 class TShimmerEffect extends StatelessWidget {
   const TShimmerEffect({
     Key? key,
@@ -22,7 +20,7 @@ class TShimmerEffect extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
-
+    
     return Shimmer.fromColors(
       baseColor: dark ? Colors.grey[850]! : Colors.grey[300]!,
       highlightColor: dark ? Colors.grey[700]! : Colors.grey[100]!,
