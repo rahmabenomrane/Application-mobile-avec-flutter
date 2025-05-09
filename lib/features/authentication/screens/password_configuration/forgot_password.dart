@@ -4,27 +4,31 @@ import 'package:flutter/material.dart';
 import 'package:examenmobile/utils/constants/text_strings.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:get/get.dart';
-
+import 'package:examenmobile/data/repositories/authentification/authentification_repository.dart';
 
 class ForgotPassword extends StatelessWidget {
-  const ForgotPassword({super.key});
+  ForgotPassword({super.key});
+
+  final emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body:  Padding(
-          padding: const EdgeInsets.all(TSizes.defaultSpace),
+      body: Padding(
+        padding: const EdgeInsets.all(TSizes.defaultSpace),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-          ///Heading
-            Text(TTexts.forgetPasswordTitle, style: Theme.of(context).textTheme.headlineMedium ),
+            /// Heading
+            Text(TTexts.forgetPasswordTitle, style: Theme.of(context).textTheme.headlineMedium),
             const SizedBox(height: TSizes.spaceBtwItems),
-            Text(TTexts.forgetPasswordSubTitle, style: Theme.of(context).textTheme.labelMedium ),
+            Text(TTexts.forgetPasswordSubTitle, style: Theme.of(context).textTheme.labelMedium),
             const SizedBox(height: TSizes.spaceBtwSections * 2),
-            ///Text field
+
+            /// Text field
             TextFormField(
+              controller: emailController,
               decoration: const InputDecoration(
                 labelText: TTexts.email,
                 prefixIcon: Icon(Iconsax.direct_right),
@@ -32,11 +36,11 @@ class ForgotPassword extends StatelessWidget {
             ),
             const SizedBox(height: TSizes.spaceBtwSections),
 
-            ///submit button
+            /// Submit button
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed:()=>Get.off(()=> const ResetPassword()),
+                onPressed: () => sendPasswordResetEmail(emailController.text.trim()),
                 child: const Text(TTexts.submit),
               ),
             ),
@@ -44,5 +48,23 @@ class ForgotPassword extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> sendPasswordResetEmail(String email) async {
+    try {
+      await AuthenticationRepository.instance.sendPasswordResetEmail(email);
+      Get.snackbar(
+        'Email Sent',
+        'Password reset link sent to $email',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      Get.to(() => ResetPassword(email: email));
+    } catch (e) {
+      Get.snackbar(
+        'Error',
+        e.toString(),
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
   }
 }
