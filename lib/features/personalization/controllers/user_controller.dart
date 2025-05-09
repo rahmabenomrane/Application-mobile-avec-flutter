@@ -29,6 +29,7 @@ class UserController extends GetxController {
       profileLoading.value= false;
 
     }
+    update();
   }
 
   // Save user Record from any Registration provider

@@ -1,12 +1,13 @@
 import 'package:examenmobile/common/widgets/appbar/appbar.dart';
 import 'package:examenmobile/common/widgets/texts/section_heading.dart';
 import 'package:examenmobile/features/personalization/controllers/user_controller.dart';
+import 'package:examenmobile/features/personalization/screens/profile/widgets/change_name.dart';
 import 'package:examenmobile/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:examenmobile/utils/constants/image_strings.dart';
-
+import 'package:get/get.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -45,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
               TProfileMenu(
                 title: 'Name',
                 value: controller.user.value.fullName,
-                onPressed: () {},
+                onPressed: () => Get.to(()=> const ChangeNameScreen()),
               ),
               TProfileMenu(
                 title: 'Username',
