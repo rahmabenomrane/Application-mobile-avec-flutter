@@ -3,7 +3,9 @@ import 'package:examenmobile/common/widgets/texts/section_heading.dart';
 import 'package:examenmobile/features/authentication/screens/password_configuration/change_password.dart';
 import 'package:examenmobile/features/personalization/controllers/user_controller.dart';
 import 'package:examenmobile/features/personalization/screens/profile/widgets/change_name.dart';
+import 'package:examenmobile/features/personalization/screens/profile/widgets/edit_profile.dart';
 import 'package:examenmobile/features/personalization/screens/profile/widgets/profile_menu.dart';
+import 'package:examenmobile/navigation_menu.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -17,7 +19,13 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = UserController.instance;
     return Scaffold(
-      appBar: TAppBar(showBackArrow: true,title: Text('Profile')),
+      appBar: AppBar(
+        title: const Text('Profile'),
+        leading: IconButton(
+          icon: const Icon(Iconsax.arrow_left),
+          onPressed: () => Get.offAll(() => const NavigationMenu()),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(TSizes.defaultSpace),
@@ -41,13 +49,26 @@ class ProfileScreen extends StatelessWidget {
               const Divider(),
               const SizedBox(height: TSizes.spaceBtwItems),
 
-              const TSectionHeading(title: 'Profile Information', showActionButton: false),
+              Row(
+                children: [
+                  const Expanded(
+                    child: TSectionHeading(
+                      title: 'Profile Information',
+                      showActionButton: false,
+                    ),
+                  ),
+                  IconButton(
+                    icon: Icon(Iconsax.edit, size: 20),
+                    onPressed: () => Get.to(() => const EditProfileScreen()),
+                  ),
+                ],
+              ),
               const SizedBox(height: TSizes.spaceBtwItems),
 
               TProfileMenu(
                 title: 'Name',
                 value: controller.user.value.fullName,
-                onPressed: () => Get.to(()=> const ChangeNameScreen()),
+                onPressed: () => Get.to(() => const ChangeNameScreen()),
               ),
               TProfileMenu(
                 title: 'Username',
@@ -60,9 +81,11 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: TSizes.spaceBtwItems),
 
               // Personal Information Section
-              const TSectionHeading(title: 'Personal Information', showActionButton: false),
+              const TSectionHeading(
+                title: 'Personal Information',
+                showActionButton: false,
+              ),
               const SizedBox(height: TSizes.spaceBtwItems),
-
 
               TProfileMenu(
                 title: 'E-mail',
@@ -74,11 +97,7 @@ class ProfileScreen extends StatelessWidget {
                 value: controller.user.value.phoneNumber,
                 onPressed: () {},
               ),
-              TProfileMenu(
-                title: 'Gender',
-                value: 'Male',
-                onPressed: () {},
-              ),
+              TProfileMenu(title: 'Gender', value: 'Male', onPressed: () {}),
               TProfileMenu(
                 title: 'Date of Birth',
                 value: '18 Oct, 1994',
@@ -90,9 +109,6 @@ class ProfileScreen extends StatelessWidget {
                 icon: Iconsax.password_check,
                 onPressed: () => Get.to(() => const ChangePasswordScreen()),
               ),
-
-
-
 
               // Close Account Button
               const SizedBox(height: TSizes.spaceBtwSections),
