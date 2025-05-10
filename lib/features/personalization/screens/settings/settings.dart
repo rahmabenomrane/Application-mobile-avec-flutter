@@ -7,6 +7,7 @@ import 'package:examenmobile/data/repositories/authentification/authentification
 import 'package:examenmobile/features/authentication/screens/login/login.dart';
 import 'package:examenmobile/features/personalization/screens/address/address.dart';
 import 'package:examenmobile/features/personalization/screens/profile/profile.dart';
+import 'package:examenmobile/features/shop/screens/order/order.dart';
 import 'package:examenmobile/utils/constants/colors.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +74,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.bag_tick,
                     title: 'My Orders',
                     subTitle: 'In-progress and Completed Orders',
-                    onTap: () {},
+                    onTap: ()=>Get.to(()=>MyOrdersScreen()),
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.bank,
