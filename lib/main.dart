@@ -14,6 +14,7 @@ Future<void> main() async {
   // Initialisation de GetStorage
   await GetStorage.init();
 
+
   // Préserver l'écran de splash jusqu'à la fin du chargement
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 

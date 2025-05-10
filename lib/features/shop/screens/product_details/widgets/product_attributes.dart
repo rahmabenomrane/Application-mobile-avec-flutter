@@ -53,7 +53,7 @@ class TProductAttributes extends StatelessWidget {
 
                           /// Actual Price
                           Text(
-                            'DT${controller.getVariationPrice()}',
+                            'DT${product.price}',
                             style: Theme.of(context).textTheme.titleSmall!
                                 .apply(decoration: TextDecoration.lineThrough),
                           ),
@@ -61,7 +61,7 @@ class TProductAttributes extends StatelessWidget {
 
                           /// Sale Price
                           TProductPriceText(
-                            price: controller.getVariationPrice(),
+                            price: '${product.salePrice}'///controller.getVariationPrice(),
                           ),
                         ],
                       ),

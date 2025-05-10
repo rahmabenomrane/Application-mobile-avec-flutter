@@ -13,7 +13,7 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
-      //debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       initialBinding:GenerateBindings() ,
       ///home: const OnBoardingScreen(),
       home: const Scaffold(
