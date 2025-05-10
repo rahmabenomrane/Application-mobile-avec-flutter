@@ -1,7 +1,8 @@
 import 'package:examenmobile/common/widgets/appbar/appbar.dart';
 import 'package:examenmobile/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:examenmobile/common/widgets/products.cart/coupon_widget.dart';
-import 'package:examenmobile/common/widgets/success_screen/success_screen.dart';
+import 'package:examenmobile/common/widgets/success_screen/success_screen_two.dart';
+import 'package:examenmobile/features/shop/controllers/cart/cart_controller.dart';
 import 'package:examenmobile/features/shop/screens/cart/widgets/card_items.dart';
 import 'package:examenmobile/features/shop/screens/checkout/widgets/billing_address_section.dart';
 import 'package:examenmobile/features/shop/screens/checkout/widgets/billing_amount_section.dart';
@@ -21,6 +22,12 @@ class CheckoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
+    final cartController = CartController.instance;
+
+    // Constants for shipping and tax rates
+    const shippingFee = 6.0;
+    const taxRate = 0.05; // 5% tax
+
     return Scaffold(
       appBar: TAppBar(
         showBackArrow: true,
@@ -68,13 +75,25 @@ class CheckoutScreen extends StatelessWidget {
         ),
       ),
 
-      /// Checkout Button
+      /// Checkout Button with dynamic total
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(TSizes.defaultSpace),
-        child: ElevatedButton(
-          onPressed: () => Get.to(() =>SuccessScreen(image: TImages.successfulPaymentIcon, title: "Payment Success!", subtitle: "Your items will be shipped soon", onPressed: ()=>Get.offAll(()=>const NavigationMenu()),)),
-          child: const Text('Checkout 256.0 DT'),
-        ),
+        child: Obx(() {
+          // Calculate total with tax and shipping
+          final subtotal = cartController.totalPrice;
+          final taxFee = subtotal * taxRate;
+          final total = subtotal + shippingFee + taxFee;
+
+          return ElevatedButton(
+            onPressed: () => Get.to(() => SuccessScreenTwo(
+              image: TImages.successfulPaymentIcon,
+              title: "Payment Success!",
+              subtitle: "Your items will be shipped soon",
+              onPressed: () => Get.offAll(() => const NavigationMenu()),
+            )),
+            child: Text('Checkout ${total.toStringAsFixed(2)} DT'),
+          );
+        }),
       ),
     );
   }
