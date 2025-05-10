@@ -1,6 +1,7 @@
 import 'package:examenmobile/common/icons/t_circular_icon.dart';
 import 'package:examenmobile/common/product_cards/product_card_vertical.dart';
 import 'package:examenmobile/common/widgets/layouts/grid_layout.dart';
+import 'package:examenmobile/features/shop/controllers/product/product_controller.dart';
 import 'package:examenmobile/features/shop/models/product_model.dart';
 import 'package:examenmobile/features/shop/screens/home/home.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
@@ -15,6 +16,7 @@ class FavouriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       appBar: AppBar(
         title: Text('Wishlist', style: Theme.of(context).textTheme.headlineMedium),
@@ -31,8 +33,8 @@ class FavouriteScreen extends StatelessWidget {
           child: Column(
             children: [
               TGridLayout(
-                itemCount: 6,
-                itemBuilder: (_, index) =>  TProductCardVertical(product: ProductModel.empty(),),
+                itemCount: controller.featuredProducts.length,
+                itemBuilder: (_, index) => TProductCardVertical(product:controller.featuredProducts[index]),
               ),
             ],
           ),

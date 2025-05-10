@@ -1,5 +1,3 @@
-import 'package:examenmobile/common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
-import 'package:examenmobile/common/widgets/images/t_rounded_image.dart';
 import 'package:examenmobile/common/widgets/texts/section_heading.dart';
 import 'package:examenmobile/features/shop/models/product_model.dart';
 import 'package:examenmobile/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
@@ -7,8 +5,6 @@ import 'package:examenmobile/features/shop/screens/product_details/widgets/produ
 import 'package:examenmobile/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
 import 'package:examenmobile/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:examenmobile/features/shop/screens/product_details/widgets/rating_share_widget.dart';
-import 'package:examenmobile/utils/constants/colors.dart';
-import 'package:examenmobile/utils/constants/image_strings.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
 import 'package:examenmobile/utils/helpers/helper_functions.dart';
 import 'package:flutter/cupertino.dart';
@@ -43,13 +39,13 @@ class ProductDetailScreen extends StatelessWidget {
                   /// - Rating & Share Button
                   const TRatingAndShare(),
                   //price,title
-                  const TProductMetaData(),
+                   TProductMetaData(product : product),
 
                   //attributes
-                  const TProductAttributes(),
+                  if(product.productType == "variable")   TProductAttributes(product:product),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
-                  ///checkou button
+                  ///checkout button
                   SizedBox(width: double.infinity,child: ElevatedButton(onPressed: () {}, child: const Text('Checkout'))),
                   const SizedBox(height: TSizes.spaceBtwSections),
 
@@ -57,7 +53,7 @@ class ProductDetailScreen extends StatelessWidget {
                   const TSectionHeading(title: 'Description',showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems ),
                   ReadMoreText(
-                    'Keep your pet warm and stylish with this cozy animal coat. Made from soft, breathable fabric, it ensures comfort during chilly days. Easy to put on and perfect for outdoor walks or indoor lounging.',
+                    product.description ?? '',
                     trimLines: 2,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: 'Show more',

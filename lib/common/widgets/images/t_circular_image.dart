@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:examenmobile/common/widgets/shimmers/shimmer.dart';
 import 'package:examenmobile/utils/constants/colors.dart';
 import 'package:examenmobile/utils/constants/image_strings.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
@@ -39,12 +41,19 @@ class TCircularImage extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(100),
         child: Center(
-          child:
-          Image(
+          child:isNetworkImage?
+              CachedNetworkImage(
+                fit:fit,
+                color:overlayColor,
+                imageUrl:image,
+                progressIndicatorBuilder: (context,url,downloadProgress)=> const TShimmerEffect(width: 55, height: 55,radius: 55,),
+
+              ):Image(image: AssetImage(image),fit: fit,color: overlayColor,),
+          /*Image(
             image: isNetworkImage? NetworkImage(image) :AssetImage(image) as ImageProvider,
             fit: fit,
             color: overlayColor,
-          ),
+          ),*/
         ),
       ),
     );
