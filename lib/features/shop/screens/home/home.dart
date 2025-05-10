@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                   TSearchContainer(text: 'Search in store'),
                   SizedBox(height: TSizes.spaceBtwSections),
 
-                  //Categories
+                  ///Categories
                   Padding(
                     padding: EdgeInsets.only(left: TSizes.defaultSpace),
                     child: Column(

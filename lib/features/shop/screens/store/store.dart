@@ -85,7 +85,7 @@ class StoreScreen extends StatelessWidget {
                         itemCount:  controller.featuredProducts.length,
                         mainAxisExtent: 80,
                         itemBuilder: (_, index) {
-                          return TBrandCard(showBorder: false);
+                          return TBrandCard(showBorder: true);
                         },
                       ),
                     ],
