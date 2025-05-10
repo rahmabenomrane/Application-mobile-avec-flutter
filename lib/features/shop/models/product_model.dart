@@ -42,7 +42,7 @@ class ProductModel {
 
   static ProductModel empty() => ProductModel(id: '',stock: 0,title: '',price: 0.0,productType: '',thumbnail: '',);
 
- toJson() {
+  toJson() {
     return {
       'SKU': sku,
       'Title': title,
@@ -66,9 +66,10 @@ class ProductModel {
   }
   /// Map Json oriented document snapshot from Firebase to Model
   factory ProductModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
-   if (document.data() == null) {
-     return ProductModel.empty();
-   }
+    if (document.data() == null) {
+      return ProductModel.empty();
+    }
+
     final data = document.data()!;
     return ProductModel(
       id: document.id,

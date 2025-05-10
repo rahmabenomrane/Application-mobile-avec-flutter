@@ -11,11 +11,13 @@ class ProductAttributeModel {
 
   /// Map Json oriented document snapshot from Firebase to Model
   factory ProductAttributeModel.fromJson(Map<String, dynamic> document) {
-    if (document.isEmpty) return ProductAttributeModel();
+    final data=document;
+    if (data.isEmpty) return ProductAttributeModel();
 
     return ProductAttributeModel(
-      name: document.containsKey('Name') ? document['Name'] : '',
-      values: List<String>.from(document['Values']),
+      name: data.containsKey('Name') ? data['Name'] : '',
+      values: List<String>.from(data['Values']),
     );
   }
+
 }

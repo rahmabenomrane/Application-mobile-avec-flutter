@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TProductPriceText extends StatelessWidget {
-  const TProductPriceText({
+  const TProductPriceText( {
     super.key,
     this.currencySign = '\ DT',
     required this.price,
