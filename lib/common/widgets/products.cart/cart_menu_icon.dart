@@ -1,6 +1,8 @@
+import 'package:examenmobile/features/shop/screens/cart/cart.dart';
 import 'package:examenmobile/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:get/get.dart';
 class TCartCountericon extends StatelessWidget {
   const TCartCountericon({
     super.key, required this.onPressed,  this.iconColor ,
@@ -14,7 +16,7 @@ class TCartCountericon extends StatelessWidget {
     return Stack(
       children: [
         IconButton(
-          onPressed:onPressed,
+          onPressed:()=>Get.to(()=>CartScreen()),
           icon: Icon(
             Iconsax.shopping_bag,
             color: iconColor,
