@@ -13,7 +13,7 @@ class SubCategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const TAppBar(title: Text('Sports'), showBackArrow: true),
+      appBar: const TAppBar(title: Text('Sub category'), showBackArrow: true),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(TSizes.defaultSpace),
@@ -27,7 +27,7 @@ class SubCategoriesScreen extends StatelessWidget {
               Column(
                 children: [
                   /// Heading
-                  TSectionHeading(title: 'Sports shirts', onPressed: (){}),
+                  TSectionHeading(title: 'Shirts', onPressed: (){}),
                   const SizedBox(height: TSizes.spaceBtwItems / 2),
 
                   SizedBox(

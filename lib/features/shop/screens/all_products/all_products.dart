@@ -1,10 +1,13 @@
 import 'package:examenmobile/common/product_cards/product_card_vertical.dart';
 import 'package:examenmobile/common/widgets/appbar/appbar.dart';
 import 'package:examenmobile/common/widgets/layouts/grid_layout.dart';
+import 'package:examenmobile/features/shop/controllers/product/product_controller.dart';
 import 'package:examenmobile/features/shop/models/product_model.dart';
 import 'package:examenmobile/utils/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 class AllProducts extends StatelessWidget {
@@ -12,6 +15,7 @@ class AllProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       appBar: const TAppBar(
           title: Text('Popular Products'), showBackArrow: true),
@@ -39,8 +43,13 @@ class AllProducts extends StatelessWidget {
                     .toList(),
               ),
               const SizedBox(height: TSizes.spaceBtwSections,),
-              TGridLayout(itemCount: 8, itemBuilder: (_,index)=>  TProductCardVertical(product: ProductModel.empty())),
-            ],
+              TGridLayout(
+                itemCount: controller.featuredProducts.length,
+                itemBuilder: (_, index) => TProductCardVertical(product:controller.featuredProducts[index]),
+              ),
+
+              ],
+
           ),
         ),
       ),
